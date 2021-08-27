@@ -1,0 +1,12 @@
+{% extends 'page-templates/views/base.twig' %}
+
+{% block pageContent %}
+	{% if post.content %}
+		<section class="entry-content">
+			<div class="row columns">
+				{{ post.content }}
+			</div>
+		</section>
+		<div class="red-divider"></div>
+	{% endif %}
+{% endblock %}

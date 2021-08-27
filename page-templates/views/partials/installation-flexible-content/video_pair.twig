@@ -1,0 +1,33 @@
+<section class="flexible-content video-pair">
+  <div class="row">
+
+    <div class="small-12 medium-6 columns">
+      {% if component.video_one_title %}
+        <h3 class="video-pair__video-title">{{ component.video_one_title }}</h3>
+      {% endif %}
+      <div class="responsive-embed">
+        {{ component.video_one }}
+      </div>
+      {% if component.video_one_additional_content %}
+        <div class="video-pair__content wysiwyg">
+          {{ component.video_one_additional_content }}
+        </div>
+      {% endif %}
+    </div>
+    
+    <div class="small-12 medium-6 columns">
+      {% if component.video_two_title %}
+        <h3 class="video-pair__video-title">{{ component.video_two_title }}</h3>
+      {% endif %}
+      <div class="responsive-embed">
+        {{ component.video_two }}
+      </div>
+      {% if component.video_two_additional_content %}
+        <div class="video-pair__content wysiwyg">
+          {{ component.video_two_additional_content }}
+        </div>
+      {% endif %}
+    </div>
+
+  </div>
+</section>

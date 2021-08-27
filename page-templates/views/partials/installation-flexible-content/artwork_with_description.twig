@@ -1,0 +1,32 @@
+<section class="artwork-with-description">
+  {% set installationImage = TimberImage(component.image).src %}
+  <div class="row entry-content">
+    <div class="small-12 medium-5 columns">
+      {% if component.title %}
+        <h2>{{ component.title }}</h2>
+      {% endif %}
+      {% if component.description %}
+        {{ component.description }}      
+      {% endif %}
+    </div>
+    <div class="small-12 medium-7 columns">
+      {% if installationImage %}
+        <img src="{{ installationImage }}" alt=" {{ installationImage.alt }}">
+      {% endif %}
+      {% if component.gallery %}
+        <div class="artwork-with-description__gallery gallery">
+          <div class="row">
+            {% for item in component.gallery %}
+              <div class="small-3 large-2 columns">
+                <a class="gallery__image" data-title="{{ item.caption }}" href="{{ TimberImage(item.url) }}" data-lightbox="{{ component.title|sanitize }}">
+                  <img src="{{ TimberImage(item.sizes.thumbnail) }}">
+                </a>    
+              </div>
+            {% endfor %}
+          </div>          
+        </div>
+      {% endif %}
+    </div>
+  </div>
+  <div class="red-divider"></div>
+</section>

@@ -1,0 +1,74 @@
+{% set heroImage = TimberImage(post.meta('hero_image')).src %}
+<div class="row margin-bottom align-center">
+	<div class="small-12 columns">
+		<img class="float-center hero-image" src="{{ heroImage }}">
+	</div>
+</div>
+
+<div class="full-width background-red small-banner margin-bottom">
+	<div class="row columns">
+		{% if currentLang == 'en-CA' %}
+			<h2>Pîkiskwe-speak Virtual Art and Film Installation:<br>
+				An Invitation to Conversations in Reconciliation</h2>
+		{% else %}
+			<h2>Installation virtuelle Art et Film pîkiskwe-parle :<br>
+				Une invitation à des conversations sur la reconciliation</h2>
+		{% endif %}
+	</div>
+</div>
+
+{% if post.meta('artists_statement') %}
+	{% set statement = post.meta('artists_statement') %}		
+	<section id="maincontent" class="background-cream artist-statement full-width-text margin-bottom">
+		<div class="row">
+			<div class="small-12 columns">
+				<h2>{{ statement.statement_heading }}</h2>
+				<div class="two-column">
+					{{ statement.statement_content }}
+				</div>
+			</div>
+		</div>
+	</section>
+{% endif %}
+
+<section class="site-links margin-bottom">
+	<div class="row">
+		{% for item in post.meta('page_links') %}			
+			{% set image = TimberImage(item.page_links_image).src %}
+			{% set image_sm = image|resize(500,200) %}
+			{% set image_md = image|resize(400) %}
+			{% set color = item.page_links_color %}
+			{% set heading = item.page_links_heading %}
+			<div class="small-12 medium-6 large-4 columns">
+				<a href="{{ item.page_link }}">
+					<div class="site-links__block" data-interchange="[{{ image_sm }}, small], [{{ image_md }}, medium], [{{ image_md }}, large]">
+						<div class="site-links__block__text background-{{color}}--transparent">
+							<h3 class="text-center">
+								{{ heading }}
+							 </h3>
+						</div>
+					</div>
+				</a>
+			</div>
+		{% endfor %}
+	</div>
+</section>
+
+{% if post.meta('two_column_layout') %}
+	{% set area = post.meta('two_column_layout') %}
+	{% set image = TimberImage(area.two_column_image).src %}
+	{% set content = area.two_column_content %}
+
+	<section class="two-column-layout margin-bottom">
+		<div class="row align-middle">
+			{% if area.two_column_image %}
+			<div class="small-12 medium-4 columns">
+				<a target="_blank" href="{{ area.link }}"><img src="{{ image|resize(370) }}" alt="{{ area.two_column_image.alt }}"></a>
+			</div>
+			{% endif %}
+			<div class="small-12 medium-8 columns emphasis">
+				{{ content }}
+			</div>
+		</div>
+	</section>
+{% endif %}

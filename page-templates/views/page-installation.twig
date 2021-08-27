@@ -1,0 +1,20 @@
+{% extends 'page-templates/views/base.twig' %}
+
+{% block pageContent %}
+  
+  {% if post.content %}
+    <section class="entry-content">
+      <div class="row columns">
+        {{ post.content }}
+      </div>
+    </section>
+    <div class="red-divider"></div>
+  {% endif %}
+
+  <section class="entry-content flexible-content-wrapper">
+    {% for component in post.meta('installation_flexible_content') %}
+      {% include 'page-templates/views/partials/installation-flexible-content/' ~ component.acf_fc_layout ~ '.twig' with { 'component': component, 'component_index': loop.index } %}
+    {% endfor %}
+  </section>
+
+{% endblock %}

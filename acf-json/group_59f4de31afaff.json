@@ -1,0 +1,67 @@
+{
+    "key": "group_59f4de31afaff",
+    "title": "Banner",
+    "fields": [
+        {
+            "key": "field_59f4de9720995",
+            "label": "Page Title Override",
+            "name": "page_title_override",
+            "type": "text",
+            "instructions": "Optionally override the heading in the banner. Default is the page title.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_59f4de5006441",
+            "label": "Content",
+            "name": "banner_content",
+            "type": "textarea",
+            "instructions": "The page title will automatically appear in the banner unless you override it. Additional content is option and will appear beneath the title.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": "wpautop"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            },
+            {
+                "param": "page_template",
+                "operator": "!=",
+                "value": "page-templates\/front.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1600830628
+}

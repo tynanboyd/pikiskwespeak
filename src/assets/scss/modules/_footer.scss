@@ -1,0 +1,12 @@
+.site-footer {
+  &__logos {
+    padding: 2em 1em;
+  }
+
+  img {
+    max-width: 260px;
+    max-height: 90px;
+    display: block;
+    margin: 1rem auto;
+  }
+}

@@ -1,0 +1,12 @@
+<div class="banner background-cream margin-bottom">
+
+<div class="row columns">
+	<h1>{{ post.get_field('page_title_override') ? post.get_field('page_title_override') : post.title }}</h1>
+
+	{% if post.get_field('banner_content') %}
+		{{ post.get_field('banner_content') }}	
+	{% endif %}
+	
+</div>
+
+</div>

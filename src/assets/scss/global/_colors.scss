@@ -1,0 +1,54 @@
+$dark-nav-color: #2C3840;
+$red: #7d312b;
+$white: #fcfbf7;
+// $cream: #ffe6cd;
+$cream: #fff1d8;
+$brown: #a06636;
+$purple: #363757;
+
+$transition: all 0.2s ease;
+
+.background-cream {
+	background-color: $cream;
+}
+
+.background-red {
+	background-color: $red;
+	color: $white;
+}
+
+.background-purple {
+	background-color: $purple;
+	color: $white;
+}
+
+.background-brown {
+	background-color: $brown;
+	color: $white;
+}
+
+.background-red--transparent {
+	background-color: transparentize($red, 0.1);
+	color: $white;
+}
+
+.background-purple--transparent {
+	background-color: transparentize($purple, 0.1);
+	color: $white;
+}
+
+.background-brown--transparent {
+	background-color: transparentize($brown, 0.1);
+	color: $white;
+}
+
+body {
+	background-color: $white;
+}
+
+a {
+	color: $red;
+	&:hover {
+		color: darken($red, 15%);
+	}
+}

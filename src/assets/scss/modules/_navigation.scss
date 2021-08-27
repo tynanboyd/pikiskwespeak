@@ -1,0 +1,60 @@
+.site-header {
+  padding: 2em 0;
+}
+
+.site-logo {
+  background-color: $red;
+  color: $white;
+  padding: 1em;
+  font-size: 0.875em;
+  line-height: 0;
+  transition: $transition;
+  &:hover {
+    color: $white;
+    background-color: darken($red, 5%);
+  }
+}
+
+.main-nav {
+  text-transform: uppercase;
+
+  a {
+    color: $black;
+    transition: $transition;
+    font-size: 15px;
+    padding: 0.7rem;
+    letter-spacing: 0.2px;
+    &:hover {
+      color: $red;
+    }
+  }
+}
+
+.dropdown.menu .is-active > a {
+  color: $red;
+  background-color: transparent;
+}
+
+.social-links {
+  color: $red;
+  font-size: 16px;
+  a {
+    color: $red;
+    padding: 0.7rem 0.5rem;
+  }
+}
+
+.skiplink {
+  position: absolute;
+  top: -1000px;
+  left: -1000px;
+  height: 1px;
+  width: 1px;
+  text-align: left;
+  overflow: hidden;
+}
+
+
+.dropdown.menu>li.is-dropdown-submenu-parent>a::after {
+  border-color: $red transparent transparent !important; 
+}

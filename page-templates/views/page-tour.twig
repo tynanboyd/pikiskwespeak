@@ -1,0 +1,75 @@
+{% if language == 'fr-CA' %}
+	{% set dates = 'Dates des Expositions ' %}
+	{% set location = 'Lieux ' %}
+	{% set screening = 'Projection spéciale et Conversations
+entourant la réconciliation ' %}	
+{% else %}
+	{% set dates = 'Installation Dates' %}
+	{% set location = 'Location' %}
+	{% set screening = 'Special Screening & Conversation in Reconciliation' %}	
+{% endif %}
+
+
+{% include 'page-templates/views/partials/banner.twig' %}
+
+{% if post.content %}
+	<section class="entry-content margin-bottom">
+		<div class="row columns">
+			{{ post.content }}
+		</div>
+	</section>
+	<div class="red-divider"></div>
+{% endif %}
+
+<section class="tour-stops">
+	{% for tourstop in post.meta('tour_stops') %}
+		{% set image = TimberImage(tourstop.location_image).src|resize(640) %}
+
+		<div class="row tourstop margin-bottom">
+			<div class="small-12 medium-4 columns">
+				<img class="tourstop__featured-image" src="{{ image }}">
+			</div>
+			<div class="small-12 medium-8 columns">
+				<h2>{{ tourstop.name_of_location }}</h2>
+				{% if tourstop.tourstop_subheading %}<h4>{{ tourstop.tourstop_subheading }}</h4>{% endif %}
+				<span><strong>{{ dates }}</strong>: {{ tourstop.date }}</span><br>
+				<span><strong>{{ location }}</strong>: {{ tourstop.location }}</span><br>
+				{% if tourstop.special_screening %}
+					<span>
+						<strong>{{ screening }}: </strong>
+						{{ tourstop.special_screening }}
+					</span>
+				{% endif %}
+
+				{% if tourstop.logos %}
+					<div class="tourstop__logos margin-bottom">
+					{% for logo in tourstop.logos %}
+						{% set logo_src = TimberImage(logo.logo_image).src|resize(125) %}
+						 {% if logo.logo_link %}<a target="_blank" href="{{ logo.logo_link }}">{% endif %}<img src="{{ logo_src }}" alt={{ logo.alt }}>{% if logo.logo_link %}</a>{% endif %}
+					{% endfor %}
+					</div>
+				{% endif %}
+
+				{% if tourstop.gallery %}
+					<div class="tourstop__gallery gallery">
+						<div class="row">
+	            {% for item in tourstop.gallery %}            	
+	              <div class="small-3 large-2 columns">
+	                <a class="gallery__image" data-title="{{ item.gallery_image.gallery_caption }}" href="{{ TimberImage(item.gallery_image.url) }}" data-lightbox="{{ tourstop.name_of_location|sanitize }}">
+	                  <img src="{{ TimberImage(item.gallery_image.sizes.thumbnail) }}">
+	                </a>    
+	              </div>
+	            {% endfor %}
+          	</div>
+					</div>
+				{% endif %}
+
+				{% if tourstop.location_content %}
+					{{ tourstop.location_content }}
+				{% endif %}
+
+			</div>  
+		</div>
+	{% endfor %}
+</section>
+

@@ -1,0 +1,20 @@
+{% extends 'page-templates/views/base.twig' %}
+
+{% block pageContent %}
+
+  {% if post.content %}
+    <section class="entry-content">
+      <div class="row columns">
+        {{ post.content }}
+      </div>
+    </section>
+    <div class="red-divider"></div>
+  {% endif %}
+
+  <section class="conversation__comments">
+    <div class="row columns">
+      {{ function('comments_template') }}
+    </div>  
+  </section>
+
+{% endblock %}

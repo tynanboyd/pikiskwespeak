@@ -1,0 +1,69 @@
+{% if language == 'fr-CA' %}
+	{% set logoLang = 'parle' %}
+{% else %}
+	{% set logoLang = 'speak' %}
+{% endif %}
+
+<header class="site-header show-for-large">
+	<a href="#maincontent" class="skiplink">Skip to main content</a>
+
+	<div class="row align-spaced">
+
+		<div class="small-5 medium-3 large-2 columns">
+			<a class="site-logo" href="{{ site.link }}">pîkiskwe-{{ logoLang }}</a>
+		</div>
+
+		<div class="large-9 columns show-for-large">
+			<nav class="main-nav">
+				<ul class="menu align-right dropdown" data-dropdown-menu>					
+				  {% for item in main_menu.get_items %}
+				    <li class="nav-main-item {{item.classes | join(' ')}}"><a class="nav-main-link" href="{{item.link}}">{{item.title}}</a>
+				      {% if item.get_children %}
+				        <ul class="menu submenu align-left">
+				          {% for child in item.get_children %}
+				            <li class="nav-drop-item"><a href="{{child.link}}">{{child.title}}</a></li>
+				          {% endfor %}
+				         </ul>
+				      {% endif %}
+				    </li>
+				  {% endfor %}         
+				</ul>
+			</nav>
+		</div>
+
+		<div class="small-4 medium-2 large-1 columns">
+			<ul class="menu social-links align-center large-align-right">
+				<li><a target="_blank" href="{{ options.facebook }}"><i class="fa fa-facebook"></i></a></li>
+				<li><a href="mailto:{{ options.email }}"><i class="fa fa-envelope"></i></a></li>
+			</ul>
+		</div>
+
+
+		{# MOBILE MENU #}
+
+	</div>	
+	
+</header>
+
+<header class="hide-for-large align-justify site-header--mobile">
+
+	<a class="site-logo" href="{{ site.link }}">pîkiskwe-{{ logoLang }}</a>
+	
+	<i class="fa fa-bars fa-large align-right" id="menu-trigger" data-toggle="offCanvas"></i>	
+
+</header>
+
+<nav class="off-canvas position-left" id="offCanvas" data-off-canvas>
+	<button class="close-button" aria-label="Close menu" type="button" data-close>
+	  <span aria-hidden="true">&times;</span>
+	</button>
+  <ul class="menu vertical">
+	  {% for item in main_menu.get_items %}
+	    <li class="nav-main-item {{item.classes | join(' ')}}"><a class="nav-main-link" href="{{item.link}}">{{item.title}}</a></li>
+	  {% endfor %}         
+	</ul>
+	<ul class="menu social-links">
+		<li><a target="_blank" href="{{ options.facebook }}"><i class="fa fa-facebook"></i></a></li>
+		<li><a href="mailto:{{ options.email }}"><i class="fa fa-envelope"></i></a></li>
+	</ul>
+</nav>	

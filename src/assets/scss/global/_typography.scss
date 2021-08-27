@@ -1,0 +1,31 @@
+.two-column {
+	@include breakpoint(medium){
+		column-count: 2;
+	}	
+}
+
+.emphasis {
+	font-style: italic;
+}
+
+.entry-content { // anything inside of post.content	
+	margin-top: 1em;
+	margin-bottom: 1em;
+
+	h3 {
+		text-transform: uppercase;
+		color: $red;
+		font-size: 1.25em;
+	}
+
+	p {
+		font-size: 1.25em;
+		line-height: 1.5em;
+	}
+
+	.inline-heading {
+		text-transform: uppercase;
+		color: $red;
+	}
+
+}

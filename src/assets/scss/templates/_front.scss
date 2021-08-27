@@ -1,0 +1,41 @@
+.artist-statement {
+  h2 {
+    text-transform: uppercase;
+    color: $red;
+  }
+}
+
+.site-links {
+  &__block {
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 200px;
+    width: 100%;
+    display: flex;
+    margin-bottom: 1em;
+
+    @include breakpoint(medium) {
+      min-height: 384px;
+    }
+
+    &__text {
+      padding: 1em 0;
+      align-self: flex-end;
+      width: 100%;
+    }
+  }
+
+  h3 {
+    font-size: 1em;
+    text-transform: uppercase;
+    line-height: 1;
+    margin-bottom: 0;
+    @include breakpoint(large) {
+      font-size: 1.5em;
+    }
+    span {
+      font-size: 1.25rem;
+      display: block;
+    }
+  }
+}

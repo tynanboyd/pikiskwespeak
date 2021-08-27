@@ -1,0 +1,17 @@
+<footer class="site-footer background-red">
+
+<section class="site-footer__logos row align-middle">
+	{% for logo in options.footer_logos %}
+		{% set logo_src = TimberImage(logo.image).src|resize(262) %}
+		{% set logo_url = logo.link %}
+
+		<div class="small-6 medium-4 columns">
+			<a target="_blank" href="{{ logo_url }}"><img src="{{ logo_src }}" alt="{{ logo.image.alt }}"></a>
+		</div>
+
+	{% endfor %}
+</section>
+
+</footer>
+
+{{ wp_footer }}
